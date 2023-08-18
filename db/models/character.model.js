@@ -57,7 +57,7 @@ class Character extends Model {
             tableName: CHARACTER_TABLE,
             modelName: 'Character',
             timestamps: true,
-            paranoid: true,
+            // paranoid: true,
         }
     }
 }

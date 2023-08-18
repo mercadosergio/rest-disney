@@ -6,7 +6,6 @@ const setupModels = require('./../db/models');
 const sequelize = new Sequelize(config.dbName, config.dbUser, config.dbPassword, {
     host: config.dbHost,
     port: config.dbPort,
-    timezone: config.dbTimezone,
     dialect: 'mysql',
     logging: false
 });

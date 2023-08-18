@@ -36,7 +36,7 @@ class UserService {
 
     async findOne(id) {
         const user = await models.User.findByPk(id, {
-            attributes: { exclude: ['password', 'username'] },
+            attributes: { exclude: ['password'] },
         });
 
         if (!user) {
@@ -47,8 +47,7 @@ class UserService {
 
     async findByEmail(email) {
         const user = await models.User.findOne({
-            where: { email },
-            attributes: { exclude: ['password', 'username'] }
+            where: { email }
         });
 
         if (!user) {
