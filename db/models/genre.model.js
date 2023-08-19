@@ -31,11 +31,9 @@ const GenreModel = {
 
 class Genre extends Model {
     static associate(models) {
-        this.belongsToMany(models.Media, {
-            as: 'films',
-            through: models.GenreMedia,
-            foreignKey: 'genreId',
-            otherKey: 'mediaId',
+        this.hasMany(models.Media, {
+            as: 'movies',
+            foreignKey: 'genreId'
         });
     }
 
