@@ -98,9 +98,11 @@ Mediante esta API REST, se pueden interactuar con los siguientes endpoints.
   Asigna un personaje a una película/serie
 
 ## Documentación
+
 Puede encontrar la documentación más a detalle en la ruta `/api/docs`
 
 ## Librerias usadas
+
 - bycrypt
 - cors
 - express
