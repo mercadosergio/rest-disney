@@ -7,6 +7,9 @@ const rating = Joi.number().integer();
 const category = Joi.string();
 const genreId = Joi.number().integer();
 
+const genre = Joi.number().integer();
+const order = Joi.string();
+
 const getMovieSchema = Joi.object({
     id: id.required(),
 });
@@ -28,9 +31,8 @@ const updateMovieSchema = Joi.object({
 
 const queryMovieSchema = Joi.object({
     title,
-    image,
-    rating,
-    category,
+    genre,
+    order,
 });
 
-module.exports = { getMovieSchema, createMovieSchema, updateMovieSchema };
+module.exports = { getMovieSchema, createMovieSchema, updateMovieSchema, queryMovieSchema };

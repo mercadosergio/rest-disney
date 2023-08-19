@@ -41,7 +41,6 @@ class MovieService {
         if (genre) {
             options.where.genreId = genre;
         }
-        console.log(query);
 
         // Filtro por fecha de creación
         const { order } = query;
@@ -55,7 +54,14 @@ class MovieService {
 
     async findOne(id) {
         const movie = await models.Media.findByPk(id, {
-            attributes: { exclude: ['updatedAt'] }
+            attributes: { exclude: ['updatedAt', 'deletedAt'] },
+            include: [
+                {
+                    model: models.Character,
+                    as: 'characters',
+                    attributes: { exclude: ['createdAt', 'updatedAt', 'deletedAt'] }
+                }
+            ],
         });
         if (!movie) {
             throw new Error('movie not found');

@@ -1,20 +1,29 @@
-const { Router } = require('express');
+const express = require('express');
 const passport = require('passport');
+const multer = require('multer');
 
 const CharacterService = require('../services/character.service');
 const validatorHandler = require('../middlewares/validator.handler');
 
-const { updateCharacterSchema, createCharacterSchema, getCharacterSchema } = require('./../schemas/character.schema');
+const { getCharacterSchema } = require('./../schemas/character.schema');
 
-const router = Router();
+
+const router = express.Router();
 const service = new CharacterService();
 
+const storage = multer.diskStorage({
+    destination: 'public/characters',
+    filename: function (req, file, cb) {
+        cb(null, `${Date.now()}-${file.originalname}`);
+    }
+});
+const upload = multer({ storage });
+
 router.get('/',
-    passport.authenticate('jwt', { session: false }),
     async (req, res) => {
         try {
-            const users = await service.find();
-            res.status(200).json(users);
+            const characters = await service.find(req.query);
+            res.status(200).json(characters);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
@@ -25,8 +34,8 @@ router.get('/:id',
     async (req, res) => {
         try {
             const { id } = req.params;
-            const user = await service.findOne(id);
-            res.status(200).json(user);
+            const character = await service.findOne(id);
+            res.status(200).json(character);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
@@ -34,12 +43,26 @@ router.get('/:id',
 );
 
 router.post('/',
-    validatorHandler(createCharacterSchema, 'body'),
+    passport.authenticate('jwt', { session: false }),
+    upload.single('characterImage'),
     async (req, res) => {
         try {
             const body = req.body;
-            const createdUser = await service.create(body);
-            res.status(201).json(createdUser);
+            const ceatedCharacter = await service.create(body, req.file);
+            res.status(201).json(ceatedCharacter);
+        } catch (error) {
+            res.status(500).json({ error: error.message });
+        }
+    }
+);
+
+router.post('/asign-character',
+    passport.authenticate('jwt', { session: false }),
+    async (req, res) => {
+        try {
+            const body = req.body;
+            const asigned = await service.asignToMovie(body);
+            res.status(201).json(asigned);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }
@@ -48,13 +71,13 @@ router.post('/',
 
 router.put('/:id',
     validatorHandler(getCharacterSchema, 'params'),
-    validatorHandler(updateCharacterSchema, 'body'),
+    upload.single('characterImage'),
     async (req, res) => {
         try {
             const { id } = req.params;
             const body = req.body;
-            const user = await service.update(id, body);
-            res.status(200).json(user);
+            const character = await service.update(id, body, req.file);
+            res.status(200).json(character);
         } catch (error) {
             res.status(500).json({ error: error.message });
         }

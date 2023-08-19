@@ -18,12 +18,12 @@ const CharacterModel = {
         type: DataTypes.STRING,
     },
     age: {
-        allowNull: false,
+        allowNull: true,
         type: DataTypes.INTEGER,
     },
     weight: {
         allowNull: false,
-        type: DataTypes.FLOAT,
+        type: DataTypes.STRING,
     },
     history: {
         allowNull: false,
@@ -38,6 +38,11 @@ const CharacterModel = {
         allowNull: false,
         type: DataTypes.DATE,
         field: 'updated_at',
+    },
+    deletedAt: {
+        allowNull: true,
+        type: DataTypes.DATE,
+        field: 'deleted_at',
     },
 };
 
@@ -57,7 +62,7 @@ class Character extends Model {
             tableName: CHARACTER_TABLE,
             modelName: 'Character',
             timestamps: true,
-            // paranoid: true,
+            paranoid: true,
         }
     }
 }

@@ -3,9 +3,8 @@ const passport = require('passport');
 const multer = require('multer');
 
 const MovieService = require('./../services/movie.service');
-// const validatorHandler = require('./../middlewares/validator.handler');
-// const { getProductImageSchema, updateProductImageSchema, addImageSchema } = require('./../schemas/products.schemas');
-const fs = require('fs');
+const validatorHandler = require('./../middlewares/validator.handler');
+const { getMovieSchema, queryMovieSchema } = require('./../schemas/movie.schema');
 
 const router = express.Router();
 const service = new MovieService();
@@ -33,7 +32,7 @@ router.post('/',
 );
 
 router.get('/',
-    // validatorHandler(queryProductSchema, 'query'),
+    validatorHandler(queryMovieSchema, 'query'),
     async (req, res, next) => {
         try {
             const productImages = await service.find(req.query);
@@ -45,7 +44,7 @@ router.get('/',
 );
 
 router.get('/:id',
-    // validatorHandler(getProductImageSchema, 'params'),
+    validatorHandler(getMovieSchema, 'params'),
     async (req, res, next) => {
         try {
             const { id } = req.params;
@@ -58,8 +57,7 @@ router.get('/:id',
 );
 
 router.put('/:id',
-    // validatorHandler(getProductImageSchema, 'params'),
-    // validatorHandler(updateProductImageSchema, 'body'),
+    validatorHandler(getMovieSchema, 'params'),
     upload.single('movieImage'),
     async (req, res, next) => {
         try {
@@ -74,7 +72,7 @@ router.put('/:id',
 );
 
 router.delete('/:id',
-    // validatorHandler(getProductImageSchema, 'params'),
+    validatorHandler(getMovieSchema, 'params'),
     async (req, res, next) => {
         try {
             const { id } = req.params;
