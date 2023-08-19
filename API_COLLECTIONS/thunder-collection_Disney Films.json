@@ -1,0 +1,530 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "Disney Films",
+    "dateExported": "2023-08-19T16:41:14.728Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "6d0c4a25-1807-44e9-acd1-aa93b0a6b698",
+            "name": "AUTH",
+            "containerId": "",
+            "created": "2023-08-18T03:50:16.489Z",
+            "sortNum": 1250
+        },
+        {
+            "_id": "a4596602-178e-49d1-86da-07d2e7ddb618",
+            "name": "USERS",
+            "containerId": "",
+            "created": "2023-08-17T22:26:53.973Z",
+            "sortNum": 2500
+        },
+        {
+            "_id": "425a664d-5bee-4c66-b5a9-ab884d075813",
+            "name": "GENRES",
+            "containerId": "",
+            "created": "2023-08-18T03:11:29.965Z",
+            "sortNum": 5000
+        },
+        {
+            "_id": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "MOVIES",
+            "containerId": "",
+            "created": "2023-08-18T19:38:06.474Z",
+            "sortNum": 7500
+        },
+        {
+            "_id": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "CHARACTERS",
+            "containerId": "",
+            "created": "2023-08-17T03:41:39.944Z",
+            "sortNum": 10000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2892bbca-f98c-4091-ba84-0d6824b1d4e1",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "GET CHARACTERS",
+            "url": "http://localhost:3000/api/characters",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-17T03:41:52.104Z",
+            "modified": "2023-08-19T05:33:32.360Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "name",
+                    "value": "",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "age",
+                    "value": "",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "movies",
+                    "value": "",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MjMzNjY1N30.yDPselzFUXbEorq6qm34dfpP_KXJePaQ1BrZ5nB00Lw"
+            },
+            "tests": []
+        },
+        {
+            "_id": "60cd90c9-444a-4a94-a849-514f81982617",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "a4596602-178e-49d1-86da-07d2e7ddb618",
+            "name": "GET USERS",
+            "url": "http://localhost:3000/api/users",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-17T22:26:53.973Z",
+            "modified": "2023-08-17T22:35:25.932Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "4febf990-9699-43f5-803d-b9440a5749d2",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "425a664d-5bee-4c66-b5a9-ab884d075813",
+            "name": "GET GENRES",
+            "url": "http://localhost:3000/api/genres",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-18T03:11:29.965Z",
+            "modified": "2023-08-18T03:11:50.194Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "b1760d96-bcb6-4426-ba3c-73dfd9880435",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "GET MOVIES",
+            "url": "http://localhost:3000/api/movies?title=Piratas",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2023-08-18T19:38:06.474Z",
+            "modified": "2023-08-19T13:26:17.026Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "title",
+                    "value": "Piratas",
+                    "isPath": false
+                },
+                {
+                    "name": "genre",
+                    "value": "1",
+                    "isDisabled": true,
+                    "isPath": false
+                },
+                {
+                    "name": "order",
+                    "value": "DESC",
+                    "isDisabled": true,
+                    "isPath": false
+                }
+            ],
+            "tests": []
+        },
+        {
+            "_id": "8ed58eee-2a04-4a98-945d-bf4fd4ae91fe",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "GET CHARACTER",
+            "url": "http://localhost:3000/api/characters/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-17T03:42:07.111Z",
+            "modified": "2023-08-17T22:35:02.078Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "2596e445-448c-47ab-a50a-f82f029ef2be",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "a4596602-178e-49d1-86da-07d2e7ddb618",
+            "name": "GET USER",
+            "url": "http://localhost:3000/api/users/1",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-17T22:26:53.974Z",
+            "modified": "2023-08-19T03:42:10.012Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "26bd1926-c366-4d9a-aef0-47818543f851",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "425a664d-5bee-4c66-b5a9-ab884d075813",
+            "name": "PREVIEW GENRE IMAGE",
+            "url": "http://localhost:3000/api/public/genres/action.jpg",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2023-08-18T18:52:46.836Z",
+            "modified": "2023-08-19T03:42:56.393Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "59b3f580-856e-4dbc-9957-a7e561878047",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "CREATE CHARACTER",
+            "url": "http://localhost:3000/api/characters",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-08-17T03:42:34.943Z",
+            "modified": "2023-08-19T13:30:05.581Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Han solo"
+                    },
+                    {
+                        "name": "age",
+                        "value": "39"
+                    },
+                    {
+                        "name": "history",
+                        "value": "Contrabandista"
+                    },
+                    {
+                        "name": "weight",
+                        "value": "80"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "characterImage",
+                        "value": "c:\\Users\\Marta\\Downloads\\hansolo.jpg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MjQ1MTc5Nn0.wBbdIXV2dFw9WwTN3o5cJagAj8R50b0xuRQFO-QarL0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "5d1c0744-89fd-46af-9f3e-73683a9a1753",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "UPDATE CHARACTER",
+            "url": "http://localhost:3000/api/characters/18",
+            "method": "PUT",
+            "sortNum": 32500,
+            "created": "2023-08-19T13:34:18.011Z",
+            "modified": "2023-08-19T13:34:59.932Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Han solo"
+                    },
+                    {
+                        "name": "age",
+                        "value": "39"
+                    },
+                    {
+                        "name": "history",
+                        "value": "Contrabandista"
+                    },
+                    {
+                        "name": "weight",
+                        "value": "80"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "characterImage",
+                        "value": "c:\\Users\\Marta\\Downloads\\disney-bg.jpg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MjQ1MTc5Nn0.wBbdIXV2dFw9WwTN3o5cJagAj8R50b0xuRQFO-QarL0"
+            },
+            "tests": []
+        },
+        {
+            "_id": "847d4071-2c38-4627-a72f-809e4085a8a4",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "GET MOVIE",
+            "url": "http://localhost:3000/api/movies/2",
+            "method": "GET",
+            "sortNum": 45000,
+            "created": "2023-08-19T00:10:51.403Z",
+            "modified": "2023-08-19T13:09:19.810Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "3f21298e-124f-416b-8d36-02e411cd9475",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6d0c4a25-1807-44e9-acd1-aa93b0a6b698",
+            "name": "REGISTER",
+            "url": "http://localhost:3000/api/auth/register",
+            "method": "POST",
+            "sortNum": 50000,
+            "created": "2023-08-18T03:50:37.771Z",
+            "modified": "2023-08-18T03:52:21.343Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Sergio\",\n  \"email\": \"sergio@mail.com\",\n  \"password\": \"1234567890\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "efdceda8-39ef-4bbb-b66c-d49d4af9ba57",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "DELETE CHARACTER",
+            "url": "http://localhost:3000/api/characters/1",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-08-19T05:24:13.192Z",
+            "modified": "2023-08-19T05:24:34.184Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "e3774ce8-da6a-4c5e-97e4-c23ce4e2bed2",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6d0c4a25-1807-44e9-acd1-aa93b0a6b698",
+            "name": "LOGIN",
+            "url": "http://localhost:3000/api/auth/login",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-08-18T03:57:14.548Z",
+            "modified": "2023-08-18T05:30:56.385Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"sergio@mail.com\",\n  \"password\": \"1234567890\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "8babd3fe-f273-47ec-aac0-f7817a4eb84a",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "42eed68b-72c1-4076-ab6a-5d69b25da44e",
+            "name": "ASIGN CHARACTER TO MOVIE",
+            "url": "http://localhost:3000/api/asign-character",
+            "method": "POST",
+            "sortNum": 60000,
+            "created": "2023-08-19T13:11:13.043Z",
+            "modified": "2023-08-19T13:33:48.302Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"characterId\": 1,\n  \"mediaId\": 2\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "155fe3e8-1be8-42d5-8796-3ea9d3fffc01",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6d0c4a25-1807-44e9-acd1-aa93b0a6b698",
+            "name": "IS AVAILABLE",
+            "url": "http://localhost:3000/api/auth/is-available",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-08-18T03:57:27.792Z",
+            "modified": "2023-08-18T03:58:53.873Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"sergio@mail.com\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "0863be66-c2f7-4def-99b5-e6ab855fe58f",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "425a664d-5bee-4c66-b5a9-ab884d075813",
+            "name": "CREATE GENRE",
+            "url": "http://localhost:3000/api/genres",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-08-18T19:13:14.544Z",
+            "modified": "2023-08-18T19:16:05.064Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "name",
+                        "value": "Terror"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "imageFile",
+                        "value": "c:\\Users\\Marta\\Downloads\\code3.png"
+                    }
+                ]
+            },
+            "tests": []
+        },
+        {
+            "_id": "aff04c08-60b1-4e54-b716-c8a8a5206f09",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "CREATE MOVIE",
+            "url": "http://localhost:3000/api/movies",
+            "method": "POST",
+            "sortNum": 80000,
+            "created": "2023-08-18T19:38:06.476Z",
+            "modified": "2023-08-19T03:51:38.080Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Han solo"
+                    },
+                    {
+                        "name": "category",
+                        "value": "Pelicula"
+                    },
+                    {
+                        "name": "rating",
+                        "value": "3"
+                    },
+                    {
+                        "name": "genreId",
+                        "value": "2"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "movieImage",
+                        "value": "c:\\Users\\Marta\\Downloads\\hansolo.jpg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MjQxNjM5N30.xOfCfN-9WOFEGy3vlhLHWTEhFu_JkwSteMD1drpb5HM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "6b6b5387-1bae-4166-b510-70d71949ba66",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "UPDATE MOVIE",
+            "url": "http://localhost:3000/api/movies/23",
+            "method": "PUT",
+            "sortNum": 85000,
+            "created": "2023-08-19T04:39:54.846Z",
+            "modified": "2023-08-19T05:12:11.635Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "formdata",
+                "raw": "",
+                "form": [
+                    {
+                        "name": "title",
+                        "value": "Han solo"
+                    },
+                    {
+                        "name": "category",
+                        "value": "Pelicula"
+                    },
+                    {
+                        "name": "rating",
+                        "value": "3"
+                    },
+                    {
+                        "name": "genreId",
+                        "value": "2"
+                    }
+                ],
+                "files": [
+                    {
+                        "name": "movieImage",
+                        "value": "c:\\Users\\Marta\\Downloads\\hansolo.jpg"
+                    }
+                ]
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImlhdCI6MTY5MjQxNjM5N30.xOfCfN-9WOFEGy3vlhLHWTEhFu_JkwSteMD1drpb5HM"
+            },
+            "tests": []
+        },
+        {
+            "_id": "b1a2190b-273b-4e28-963b-18455e6372e4",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "PREVIEW MOVIE IMAGE",
+            "url": "http://localhost:3000/api/public/movies/avengers.jpg",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2023-08-19T03:43:14.491Z",
+            "modified": "2023-08-19T04:06:52.164Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "38140414-1eb0-4df6-9b75-df56c20f62cd",
+            "colId": "993d6ac1-f7df-4fb4-86d4-e94888282f84",
+            "containerId": "6763e3f0-16b7-4943-80e6-f7aa92905f09",
+            "name": "DELETE MOVIE",
+            "url": "http://localhost:3000/api/movies/23",
+            "method": "DELETE",
+            "sortNum": 100000,
+            "created": "2023-08-19T03:57:51.373Z",
+            "modified": "2023-08-19T04:05:37.672Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
