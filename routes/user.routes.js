@@ -1,18 +1,44 @@
 const express = require('express');
-const passport = require('passport');
 
 const UserService = require('./../services/user.service');
 const validatorHandler = require('../middlewares/validator.handler');
-// const { checkRoles } = require('./../middlewares/auth.handler');
 
-const { updateUserSchema, createUserSchema, getUserSchema } = require('../schemas/user.schema');
+const { getUserSchema } = require('../schemas/user.schema');
 
 const router = express.Router();
 const service = new UserService();
 
+/**
+ * @swagger
+ * tags:
+ *   name: Users
+ *   description:
+ */
+
+
+/**
+ * @openapi
+ * /api/users:
+ *   get:
+ *     tags:
+ *       - Users
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array 
+ *                   items: 
+ *                     type: object
+ */
 router.get('/',
-    // passport.authenticate('jwt', { session: false }),
-    // checkRoles('admin'),
     async (req, res, next) => {
         try {
             const users = await service.find();
@@ -22,9 +48,30 @@ router.get('/',
         }
     });
 
+    /**
+* @openapi
+* /api/users/{id}:
+*   get:
+*     tags: [Users]
+*     parameters:
+*       - in: path
+*         name: id
+*         required: true
+*         schema:
+*           type: integer
+*         description: ID del usuario
+*     responses:
+*       200:
+*         content:
+*           application/json:
+*             example:
+*               status: OK
+*       404:
+*         description: Usuario no encontrado
+*       500:
+*         description: Error en el servidor
+*/
 router.get('/:id',
-    // passport.authenticate('jwt', { session: false }),
-    // checkRoles('admin'),
     validatorHandler(getUserSchema, 'params'),
     async (req, res, next) => {
         try {

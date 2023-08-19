@@ -23,64 +23,79 @@ Mediante esta API REST, se pueden interactuar con los siguientes endpoints.
 
 1. Auth
 
-> POST /auth/register
-> Registro de usuario.
+- POST /auth/register
+  Registro de usuario.
 
-> POST /auth/login
-> Inicio de sesión
+- POST /auth/login
+  Inicio de sesión
 
-> POST /auth/is-available
-> Verifica si el formato email enviado es valido
+- POST /auth/is-available
+  Verifica si el formato email enviado es valido
 
 2. Users
 
-> GET /users
-> Lista todos los usuarios
+- GET /users
+  Lista todos los usuarios
 
-> GET /users/:id
-> Lista un usuario específico
+- GET /users/:id
+  Lista un usuario específico
 
 3. Genres
 
-> GET /genres
-> Lista todos los géneros de peliculas y series
+- GET /genres
+  Lista todos los géneros de peliculas y series
 
-> POST /genres
-> Creación de generos
+- POST /genres
+  Creación de generos
 
 4. Movies
 
-> POST /movies
-> Creación de películas/series
+- POST /movies
+  Creación de películas/series
 
-> PUT /movies
-> Edición de películas/series
+- PUT /movies
+  Edición de películas/series
 
-> GET /movies
-> Lista todas las peliculas/series
+- GET /movies
+  Lista todas las peliculas/series
+- GET /movies?title=xxx
+  Filtra por titulo de pelicula
+- GET /movies?genre=2xx
+  Filtra por género
+- GET /movies?order='ASC' o 'DESC'
+  Ordena de forma descendente o ascendente por fecha de creación
 
-> GET /movies/:id
-> Lista la información de una película/serie especificada por su id
+- GET /movies/:id
+  Lista la información de una película/serie especificada por su id
 
-> DELETE /movies
-> Elimina una película/serie
+- DELETE /movies
+  Elimina una película/serie(soft)
 
 5. Characters
 
-> POST /characters
-> Creación de personajes
+- POST /characters
+  Creación de personajes
 
-> PUT /characters
-> Edición de personajes
+- PUT /characters
+  Edición de personajes
 
-> GET /characters
-> Lista todos los personajes
+- GET /characters
+  Lista todos los personajes
+- GET /characters?name=xxx
+  Filtra por nombre
+- GET /characters?age=2x
+  Filtra por edad
+- GET /characters?movies=4x
+  Filtra por la pelicula en que sale
 
-> GET /characters/:id
-> Lista la información de un personaje especificada por su id
+- GET /characters/:id
+  Lista la información de un personaje especificada por su id
 
-> DELETE /characters
-> Elimina un personaje
+- DELETE /characters
+  Elimina un personaje(soft)
 
-> POST /asign-character
-> Asigna un personaje a una película/serie
+- POST /asign-character
+  Asigna un personaje a una película/serie
+
+## Documentación
+Puede encontrar la documentación más a detalle en la ruta `/api/docs`

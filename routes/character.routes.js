@@ -19,6 +19,51 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+/**
+ * @swagger
+ * tags:
+ *   name: Characters
+ *   description:
+ */
+
+
+/**
+ * @swagger
+ * /api/characters:
+ *   get:
+ *     tags: [Characters]
+ *     parameters:
+ *       - in: query
+ *         name: name
+ *         schema:
+ *           type: string
+ *         description: Filtro por nombre
+ *       - in: query
+ *         name: age
+ *         schema:
+ *           type: integer
+ *         description: Filtro por edad
+ *       - in: query
+ *         name: movies
+ *         schema:
+ *           type: string
+ *         description: Filtro por pelicula
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array 
+ *                   items: 
+ *                     type: object
+ */
 router.get('/',
     async (req, res) => {
         try {
@@ -29,6 +74,29 @@ router.get('/',
         }
     });
 
+/**
+* @openapi
+* /api/characters/{id}:
+*   get:
+*     tags: [Characters]
+*     parameters:
+*       - in: path
+*         name: id
+*         required: true
+*         schema:
+*           type: integer
+*         description: ID del personaje
+*     responses:
+*       200:
+*         content:
+*           application/json:
+*             example:
+*               status: OK
+*       404:
+*         description: Personaje no encontrado
+*       500:
+*         description: Error en el servidor
+*/
 router.get('/:id',
     validatorHandler(getCharacterSchema, 'params'),
     async (req, res) => {
@@ -41,9 +109,43 @@ router.get('/:id',
         }
     }
 );
+/**
+ * @swagger
+ * /api/characters:
+ *   post:
+ *     tags: [Characters]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               history:
+ *                 type: string
+ *               age:
+ *                 type: integer
+ *               weight:
+ *                 type: string
+ *               characterImage:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Personaje creado exitosamente
+ *         content:
+ *           application/json:
+ *             example:
+ *               name: Pinocho 
+ *               history: lorem ipsum amet dolor
+ *               age: 0
+ *               weight: 5
+ *               characterImage: route/imagen.jpg
+ */
 
 router.post('/',
-    passport.authenticate('jwt', { session: false }),
     upload.single('characterImage'),
     async (req, res) => {
         try {
@@ -55,9 +157,32 @@ router.post('/',
         }
     }
 );
-
+/**
+ * @swagger
+ * /api/asign-character:
+ *   post:
+ *     tags: [Characters]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               mediaId:
+ *                 type: integer
+ *               characterId:
+ *                 type: integer
+ *     responses:
+ *       201:
+ *         description: Personaje creado exitosamente
+ *         content:
+ *           application/json:
+ *             example:
+ *               mediaId: 1 
+ *               characterId: 5
+ */
 router.post('/asign-character',
-    passport.authenticate('jwt', { session: false }),
     async (req, res) => {
         try {
             const body = req.body;
@@ -68,6 +193,49 @@ router.post('/asign-character',
         }
     }
 );
+
+/**
+ * @swagger
+ * /api/characters/{id}:
+ *   put:
+ *     tags: [Characters]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID de la película a actualizar
+  *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               history:
+ *                 type: string
+ *               age:
+ *                 type: integer
+ *               weight:
+ *                 type: string
+ *               characterImage:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Personaje creado exitosamente
+ *         content:
+ *           application/json:
+ *             example:
+ *               name: Pinocho 
+ *               history: lorem ipsum amet dolor
+ *               age: 0
+ *               weight: 5
+ *               movieImage: route/imagen.jpg
+ */
 
 router.put('/:id',
     validatorHandler(getCharacterSchema, 'params'),
@@ -83,7 +251,33 @@ router.put('/:id',
         }
     }
 );
-
+/**
+ * @swagger
+ * /api/characters/{id}:
+ *   delete:
+ *     tags: [Characters]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: integer
+ *         description: ID de la película a eliminar
+ *     responses:
+ *       200:
+ *         description: Película eliminada exitosamente
+ *         content:
+ *           application/json:
+ *             example:
+ *               status: OK
+ *               message: Película eliminada con éxito
+ *       401:
+ *         description: No autorizado (token JWT no proporcionado o inválido)
+ *       404:
+ *         description: Película no encontrada
+ *       500:
+ *         description: Error en el servidor
+ */
 router.delete('/:id',
     validatorHandler(getCharacterSchema, 'params'),
     async (req, res) => {

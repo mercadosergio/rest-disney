@@ -3,7 +3,6 @@ const passport = require('passport');
 const multer = require('multer');
 
 const GenreService = require('./../services/genre.service');
-const validatorHandler = require('./../middlewares/validator.handler');
 
 const router = express.Router();
 const service = new GenreService();
@@ -16,6 +15,35 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
+/**
+ * @swagger
+ * /api/genres:
+ *   post:
+ *     tags: [Genres]
+ *     summary: REQUIERE DE AUTENTICACIÓN CON TOKEN JWT
+ *     security:
+ *       - jwt: []
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         multipart/form-data:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               name:
+ *                 type: string
+ *               imageFile:
+ *                 type: string
+ *                 format: binary
+ *     responses:
+ *       201:
+ *         description: Personaje creado exitosamente
+ *         content:
+ *           application/json:
+ *             example:
+ *               name: Fiction 
+ *               imageFile: route/imagen.jpg
+ */
 router.post('/',
     passport.authenticate('jwt', { session: false }),
     upload.single('imageFile'),
@@ -31,8 +59,29 @@ router.post('/',
     }
 );
 
+/**
+ * @openapi
+ * /api/genres:
+ *   get:
+ *     tags:
+ *       - Genres
+ *     responses:
+ *       200:
+ *         description: OK
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 status:
+ *                   type: string
+ *                   example: OK
+ *                 data:
+ *                   type: array 
+ *                   items: 
+ *                     type: object
+ */
 router.get('/',
-    // validatorHandler(queryProductSchema, 'query'),
     async (req, res, next) => {
         try {
             const genres = await service.find();
