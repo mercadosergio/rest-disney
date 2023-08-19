@@ -99,3 +99,20 @@ Mediante esta API REST, se pueden interactuar con los siguientes endpoints.
 
 ## Documentación
 Puede encontrar la documentación más a detalle en la ruta `/api/docs`
+
+## Librerias usadas
+- bycrypt
+- cors
+- express
+- @hapi/boom
+- joi
+- Sequelize
+- Sequelize-cli
+- multer
+- dotenv
+- mysql2
+- jsonwebtoken
+- passport
+- passport-jwt
+- passport-local
+- nodemon
